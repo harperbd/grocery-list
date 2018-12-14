@@ -3,7 +3,6 @@ import CurrencyFormat from 'react-currency-format';
 
 //todo: add price $$$
 const Grocery = ({id, name, price, complete, groceryClick}) => {
-
   return (
       <li onClick={ () => groceryClick(id) }
           style={ complete ? {...styles.grocery, ...styles.complete} : styles.grocery }>

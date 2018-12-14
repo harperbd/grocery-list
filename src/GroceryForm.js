@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
+import CurrencyInput from 'react-currency-input';
 
 class GroceryForm extends Component {
-  state = { word: '', price: ''};
+  state = { word: '', price: '0.00'};
 
   handleChange = (e) => {
     const { name, value } = e.target;
@@ -11,7 +12,6 @@ class GroceryForm extends Component {
   };
 
   handleSubmit = (e) => {
-    console.log('Form submitted');
     e.preventDefault();
     this.props.addGroceryItem(this.state.word, this.state.price);
     this.setState({ word: '', price: '' })
@@ -28,13 +28,7 @@ class GroceryForm extends Component {
               placeholder='Add Grocery Item'
               onChange={this.handleChange}
           />
-          <input
-              name='price'
-              value={price}
-              required
-              placeholder='Add Price'
-              onChange={this.handleChange}
-          />
+          <CurrencyInput name='price' value={price} placeholder='Add Price' required onChangeEvent={this.handleChange}/>
           <button type="submit">Submit</button>
         </form>
     )
