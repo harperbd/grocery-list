@@ -1,7 +1,6 @@
 import React from 'react';
 import CurrencyFormat from 'react-currency-format';
 
-//todo: add price $$$
 const Grocery = ({id, name, price, complete, groceryClick}) => {
   return (
       <li onClick={ () => groceryClick(id) }
