@@ -11,6 +11,7 @@ class GroceryForm extends Component {
   };
 
   handleSubmit = (e) => {
+    console.log('Form submitted');
     e.preventDefault();
     this.props.addGroceryItem(this.state.word, this.state.price);
     this.setState({ word: '', price: '' })
@@ -25,7 +26,7 @@ class GroceryForm extends Component {
               value={word}
               required
               placeholder='Add Grocery Item'
-
+              onChange={this.handleChange}
           />
           <input
               name='price'
@@ -34,6 +35,7 @@ class GroceryForm extends Component {
               placeholder='Add Price'
               onChange={this.handleChange}
           />
+          <button type="submit">Submit</button>
         </form>
     )
   }
