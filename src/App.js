@@ -6,16 +6,16 @@ import GroceryForm from './GroceryForm';
 class App extends Component {
   state = {
     groceries: [
-      { id: 1, name: 'Salad', price: 1.00, complete: true },
-      { id: 2, name: 'Apples', price: 0.50, complete: false },
-      { id: 3, name: 'Chicken', price: 2.50, complete: false }
+      { id: 1, name: 'Salad', price: "1.00", complete: true },
+      { id: 2, name: 'Apples', price: "0.50", complete: false },
+      { id: 3, name: 'Chicken', price: "2.50", complete: false }
     ]
   };
 
-  addGroceryItem = (word) => {
+  addGroceryItem = (word, price) => {
     const { groceries } = this.state;
-    const grocery = {id: this.getUniqueId(), name: word, complete: false};
-    this.setState({ todos: [grocery, ...groceries] })
+    const grocery = {id: this.getUniqueId(), name: word, price: price, complete: false};
+    this.setState({ groceries: [grocery, ...groceries] })
   };
 
   getUniqueId = () => {
@@ -47,7 +47,7 @@ class App extends Component {
         <div>
           <GroceryForm addGroceryItem={this.addGroceryItem}  />
           <ul>
-            { this.listItems()}
+            { this.listItems() }
           </ul>
         </div>
     );
